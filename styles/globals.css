@@ -1,0 +1,9 @@
+:root {
+    --primary-color: #ee3900;
+    --secundary-color: #303841;
+
+    --primary-color-medium: #ff5722;
+    --primary-color-light: #ff7e55;
+}
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap');
+
