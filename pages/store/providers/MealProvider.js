@@ -6,6 +6,7 @@ const MealContext = createContext();
 const MealProvider = ({ children }) => {
   const [categories, setCategories] = useState([]);
   const [meals, setMeals] = useState([]);
+  const [randomMeals, setRandomMeals] = useState([]);
 
   const getCategory = async () => {
     try {
@@ -16,22 +17,33 @@ const MealProvider = ({ children }) => {
       console.log(error.message);
     }
   };
-  const getMeal = async () => {
+  const getMeal = async (datos) => {
     try {
-      const url =
-        "https://www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast";
+      const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${datos.meal}&c=${datos.category}`;
       const { data } = await axios(url);
       setMeals(data.meals);
     } catch (error) {
       console.log(error.message);
     }
   };
+
+  const getMealRandom = async () => {
+    try {
+      const url = `https://www.themealdb.com/api/json/v1/1/random.php`;
+      const { data } = await axios(url);
+      setRandomMeals(data.meals);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   useEffect(() => {
     getCategory();
     getMeal();
+    getMealRandom();
   }, []);
   return (
-    <MealContext.Provider value={{ categories, meals }}>
+    <MealContext.Provider value={{ categories, meals, getMeal, randomMeals }}>
       {children}
     </MealContext.Provider>
   );

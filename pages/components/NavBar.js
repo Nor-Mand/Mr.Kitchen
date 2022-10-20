@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+import logo from "../images/logo-white.png";
 import {
   Navbar,
   Container,
@@ -21,7 +23,16 @@ const NavBar = () => {
           className="mb-3"
         >
           <Container md>
-            <Navbar.Brand href="#">Mr.Kitchen</Navbar.Brand>
+            <Navbar.Brand href="/">
+              <Image
+                src={logo}
+                fill="true"
+                objectFit="contain"
+                height={40}
+                className="d-inline-block align-top"
+                alt="Mr. Kitchen Logo"
+              />
+            </Navbar.Brand>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-${expand}`}
@@ -35,9 +46,10 @@ const NavBar = () => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
+                  <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="#action2">Recipe</Nav.Link>
-                  <Nav.Link href="#action2">Search</Nav.Link>
+                  <Nav.Link href="/categories">Categories</Nav.Link>
+                  <Nav.Link href="/search">Search</Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>

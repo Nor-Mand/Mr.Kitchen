@@ -5,4 +5,8 @@ const nextConfig = {
 };
 
 // next.config.js
-module.exports = {};
+module.exports = {
+  images: {
+    domains: ["www.themealdb.com"],
+  },
+};
