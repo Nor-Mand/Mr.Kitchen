@@ -1,19 +1,19 @@
 import React from "react";
 import useCategory from "../store/hooks/useCategory";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import Image from "next/image";
-import style from "../../styles/Category.module.css";
-const ShowCategories = () => {
+import style from "../../styles/Story.module.css";
+
+const ShowStory = () => {
   const { categories } = useCategory();
 
   return (
     <>
-      <h1>Discover Our Categories</h1>
       <Container>
         {categories.map((category) => (
           <>
-            <Row className={`${style.category__card} mb-5`}>
-              <div className={style.category__image}>
+            <Row className={`${style.story__card} mb-5`}>
+              <div className={style.story__image}>
                 <Image
                   src={category.strCategoryThumb}
                   width={300}
@@ -22,7 +22,7 @@ const ShowCategories = () => {
                   objectFit="contain"
                 />
               </div>
-              <div className={style.category__info}>
+              <div className={style.story__info}>
                 <h1>{category.strCategory}</h1>
                 <p>{category.strCategoryDescription}</p>
               </div>
@@ -34,4 +34,4 @@ const ShowCategories = () => {
   );
 };
 
-export default ShowCategories;
+export default ShowStory;

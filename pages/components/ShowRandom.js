@@ -6,7 +6,6 @@ import style from "../../styles/Category.module.css";
 
 const ShowRandom = () => {
   const { randomMeals } = useCategory();
-  console.log(randomMeals);
   return (
     <>
       <h1 className={`${style["menu-day"]} text-center mt-4`}>
