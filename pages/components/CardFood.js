@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Card, Button } from "react-bootstrap";
+import { Col, Card } from "react-bootstrap";
 import styles from "../../styles/CardFood.module.css";
 
 const CardFood = ({ meal }) => {

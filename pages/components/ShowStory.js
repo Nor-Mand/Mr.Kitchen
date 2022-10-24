@@ -11,23 +11,24 @@ const ShowStory = () => {
     <>
       <Container>
         {categories.map((category) => (
-          <>
-            <Row className={`${style.story__card} mb-5`}>
-              <div className={style.story__image}>
-                <Image
-                  src={category.strCategoryThumb}
-                  width={300}
-                  height={200}
-                  fill="true"
-                  objectFit="contain"
-                />
-              </div>
-              <div className={style.story__info}>
-                <h1>{category.strCategory}</h1>
-                <p>{category.strCategoryDescription}</p>
-              </div>
-            </Row>
-          </>
+          <div
+            className={`${style.story__card} mb-5 row`}
+            key={category.idCategory}
+          >
+            <div className={style.story__image}>
+              <Image
+                src={category.strCategoryThumb}
+                width={300}
+                height={200}
+                fill="true"
+                objectFit="contain"
+              />
+            </div>
+            <div className={style.story__info}>
+              <h1>{category.strCategory}</h1>
+              <p>{category.strCategoryDescription}</p>
+            </div>
+          </div>
         ))}
       </Container>
     </>

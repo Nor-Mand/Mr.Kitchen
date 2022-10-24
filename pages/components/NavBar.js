@@ -2,15 +2,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import logo from "../images/logo-white.png";
 import Link from "next/link";
-import {
-  Navbar,
-  Container,
-  Nav,
-  Offcanvas,
-  NavDropdown,
-  Form,
-  Button,
-} from "react-bootstrap";
+import { Navbar, Container, Nav, Offcanvas } from "react-bootstrap";
 // import style from "../../styles/NavBar.module.css";
 
 const NavBar = () => {

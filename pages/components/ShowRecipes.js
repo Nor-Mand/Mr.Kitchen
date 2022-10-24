@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import useCategory from "../store/hooks/useCategory";
-import { Col, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Link from "next/link";
 import style from "../../styles/ShowRecipes.module.css";
 
-const ShowRecipes = ({ size, quantity }) => {
+const ShowRecipes = ({ quantity }) => {
   const { allMeals } = useCategory();
+
   return (
     <>
       {allMeals
@@ -13,7 +14,11 @@ const ShowRecipes = ({ size, quantity }) => {
         .map(({ idMeal, strMeal, strMealThumb, strArea }) => (
           <div className="col-lg-4" key={idMeal}>
             <Card className={`mb-4 border-0, ${style["show-recipes__card"]}`}>
-              <Link href={`/meals/${strMeal.toLowerCase().replace(/ /g, "-")}`}>
+              <Link
+                href={`/meals/${idMeal}-${strMeal
+                  .toLowerCase()
+                  .replace(/ /g, "-")}`}
+              >
                 <a>
                   <div className={style["show-recipes__image"]}>
                     <Card.Img variant="top" src={strMealThumb} />

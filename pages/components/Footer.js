@@ -4,6 +4,7 @@ import Image from "next/image";
 import isotipo from "../images/isotipo.png";
 import style from "../../styles/Footer.module.css";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+
 const links = [
   {
     id: 1,
