@@ -39,6 +39,11 @@ body {
     text-transform: uppercase;
 }
 
+.second-font {
+    font-family: var(--secundary-font);
+    font-size: 6rem;
+}
+
 body {
     height: 100vh;
 }
@@ -63,4 +68,9 @@ main{
 section {
     position: relative;
     margin-top: 5rem;
+}
+
+a {
+    list-style: none !important;
+    text-decoration: none !important;
 }

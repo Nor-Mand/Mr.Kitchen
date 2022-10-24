@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import ShowRecipes from "./components/ShowRecipes";
+import ShowMeals from "./components/ShowMeals";
 import BannerSection from "./components/BannerSection";
 import Banner from "./images/banner-story.jpg";
 import { MealProvider } from "./store/providers/mealProvider";
@@ -14,13 +14,13 @@ const Recipe = () => {
       <section>
         <Container>
           <Row className="justify-content-md-center">
-            <Col lg={3}>
-              <h1>Categories</h1>
+            <Col lg={6} className="mb-5">
+              <h1 className="text-center">Choose your Recipes</h1>
               <FormData />
             </Col>
-            <Col lg={9}>
+            <Col lg={12}>
               <Row>
-                <ShowRecipes size={4} />
+                <ShowMeals />
               </Row>
             </Col>
           </Row>

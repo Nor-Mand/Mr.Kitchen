@@ -2,13 +2,37 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import isotipo from "../images/isotipo.png";
+import style from "../../styles/Footer.module.css";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
+const links = [
+  {
+    id: 1,
+    name: "Github",
+    icon: <FaGithub />,
+    url: "https://github.com/Nor-Mand",
+  },
+  {
+    id: 2,
+    name: "Linkeding",
+    icon: <FaLinkedin />,
+    url: "https://www.linkedin.com/in/normand-terceros-laredo-923271169",
+  },
+  {
+    id: 3,
+    name: "Instagram",
+    icon: <FaInstagram />,
+    url: "https://www.instagram.com/normand_creative",
+  },
+];
 
 const Footer = () => {
   return (
     <>
-      <div className="container-fluid  ">
-        <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-          <p className="col-md-4 mb-0 text-muted">© 2022 Normand.dev</p>
+      <div className={`container-fluid bg-dark ${style.footer}`}>
+        <footer className="d-flex flex-wrap justify-content-evenly align-items-center py-2 my-4 border-top">
+          <p className="col-md-4 mb-0 text-muted">
+            © <Link href="https://normand.dev/"> Normand Dev</Link> - 2022
+          </p>
 
           <Link
             href="/"
@@ -23,33 +47,16 @@ const Footer = () => {
               />
             </div>
           </Link>
-
           <ul className="nav col-md-4 justify-content-end">
-            <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted">
-                Features
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted">
-                Pricing
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted">
-                FAQs
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link href="#" className="nav-link px-2 text-muted">
-                About
-              </Link>
-            </li>
+            {links.map(({ id, name, url, icon }, i) => (
+              <li key={i} className="nav-item">
+                <Link href={url}>
+                  <a name={name} className="nav-link px-4 text-muted ">
+                    {icon}
+                  </a>
+                </Link>
+              </li>
+            ))}
           </ul>
         </footer>
       </div>
