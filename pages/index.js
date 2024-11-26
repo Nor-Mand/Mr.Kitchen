@@ -1,5 +1,5 @@
 import { Container, Row } from "react-bootstrap";
-import { MealProvider } from "./store/providers/mealProvider";
+import { MealProvider } from "./store/providers/MealProvider";
 import Hero from "./components/Hero";
 import ShowRecipes from "./components/ShowRecipes";
 import Head from "next/head";

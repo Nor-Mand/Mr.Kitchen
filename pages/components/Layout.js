@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "./Footer";
-
+import Modalmeal from "./Modalmeal";
 import NavBar from "./NavBar";
 
 const Layout = ({ children }) => {
@@ -9,6 +9,7 @@ const Layout = ({ children }) => {
       <NavBar />
       {children}
       <Footer />
+      {/* <Modalmeal /> */}
     </>
   );
 };

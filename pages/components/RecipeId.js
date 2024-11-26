@@ -1,12 +1,14 @@
+import { useState } from "react";
 import React from "react";
 import Image from "next/image";
 import useCategory from "../store/hooks/useCategory";
-
 const RecipeId = () => {
   const { recipe } = useCategory();
+  
+
   return (
     <>
-      {/* {recipe.map(
+      {recipe.map(
         ({ idMeal, strMealThumb, strArea, strMeal, strInstructions }) => (
           <div key={idMeal}>
             <p>id: {idMeal}</p>
@@ -16,7 +18,7 @@ const RecipeId = () => {
             <p>Description: {strInstructions}</p>
           </div>
         )
-      )} */}
+      )}
     </>
   );
 };

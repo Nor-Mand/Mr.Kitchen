@@ -18,28 +18,26 @@ const links = [
     icon: <FaLinkedin />,
     url: "https://www.linkedin.com/in/normand-terceros-laredo-923271169",
   },
-  {
-    id: 3,
-    name: "Instagram",
-    icon: <FaInstagram />,
-    url: "https://www.instagram.com/normand_creative",
-  },
+  // {
+  //   id: 3,
+  //   name: "Instagram",
+  //   icon: <FaInstagram />,
+  //   url: "https://www.instagram.com/normand_creative",
+  // },
 ];
+
+const year = new Date()
 
 const Footer = () => {
   return (
     <>
       <div className={`container-fluid bg-dark ${style.footer}`}>
         <footer className="d-flex flex-wrap justify-content-evenly align-items-center py-2 my-4 border-top">
-          <p className="col-md-4 mb-0 text-muted">
-            © <Link href="https://normand.dev/"> Normand Dev</Link> - 2022
-          </p>
-
           <Link
             href="/"
-            className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
+            className="d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none"
           >
-            <div className="bg-dark p-3 rounded">
+            <div className="bg-dark p-3 rounded col-md-4 ">
               <Image
                 src={isotipo}
                 width={40}
@@ -48,6 +46,9 @@ const Footer = () => {
               />
             </div>
           </Link>
+          <p className="col-md-4 mb-0 text-muted text-center">
+            ©{year.getFullYear()} &nbsp; <Link href="https://normand.dev/"> Normand Dev</Link>
+          </p>
           <ul className="nav col-md-4 justify-content-end">
             {links.map(({ id, name, url, icon }, i) => (
               <li key={i} className="nav-item">

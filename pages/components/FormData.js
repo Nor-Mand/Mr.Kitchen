@@ -5,18 +5,18 @@ import { Button, Form, Row, Col, Alert } from "react-bootstrap";
 import useCategory from "../store/hooks/useCategory";
 
 const FormData = () => {
+  // meal: "pie",
   const { categories, getMeal } = useCategory();
-
   const [search, setSearch] = useState({
-    meal: "",
-    category: "",
+    category: "Dessert",
   });
-
+  
+ 
   const [alert, setAlert] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
     if (Object.values(search).includes("")) {
-      setAlert("Todos los campos son obligatorios");
+      setAlert("All fields are required!");
       return;
     }
     setAlert("");
@@ -26,9 +26,9 @@ const FormData = () => {
   return (
     <Form onSubmit={handleSubmit}>
       {alert && <Alert variant="danger text-center">{alert}</Alert>}
-      <Row>
-        <Col md={6}>
-          <Form.Group className="mt-3">
+      <Row className="mx-auto">
+        {/* <Col md={6}>
+          <Form.Group className="mt-3 d-none">
             <Form.Control
               id="meal"
               type="text"
@@ -43,8 +43,8 @@ const FormData = () => {
               }
             ></Form.Control>
           </Form.Group>
-        </Col>
-        <Col md={4}>
+        </Col> */}
+        <Col md={8}>
           <Form.Group className="mt-3">
             <Form.Select
               id="category"
@@ -57,7 +57,6 @@ const FormData = () => {
                 })
               }
             >
-              <option>- Choose Category -</option>
               {categories.map((category) => (
                 <option key={category.strCategory} value={category.strCategory}>
                   {category.strCategory}
@@ -66,7 +65,7 @@ const FormData = () => {
             </Form.Select>
           </Form.Group>
         </Col>
-        <Col md={2}>
+        <Col md={4}>
           <Form.Group className="mt-3">
             <Button
               variant="primary"

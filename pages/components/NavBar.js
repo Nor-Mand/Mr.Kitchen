@@ -43,14 +43,15 @@ const NavBar = () => {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
+                  
                   <Link href="/">
                     <a className="nav-link">Home</a>
                   </Link>
-                  <Link href="/recipe" className="nav-link">
-                    <a className="nav-link">Recipes</a>
-                  </Link>
                   <Link href="/story">
                     <a className="nav-link">Story</a>
+                  </Link>
+                  <Link href="/recipe" className="nav-link">
+                    <a className="nav-link">Recipes</a>
                   </Link>
                 </Nav>
               </Offcanvas.Body>

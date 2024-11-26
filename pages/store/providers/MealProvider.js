@@ -8,6 +8,12 @@ const MealProvider = ({ children }) => {
   const [meals, setMeals] = useState([]);
   const [allMeals, setAllMeals] = useState([]);
   const [recipe, setRecipe] = useState([]);
+  const [show, setShow] = useState(false);
+
+  const getModal = () =>{
+    setShow(true)
+  }
+
 
   const getCategory = async () => {
     try {
@@ -18,9 +24,13 @@ const MealProvider = ({ children }) => {
       console.log(error.message);
     }
   };
-  const getMeal = async (datos) => {
-    try {
-      const url = `https://www.themealdb.com/api/json/v1/1/filter.php?i=${datos.meal}&c=${datos.category}`;
+  const getMeal = async (search) => {
+     console.log(search)
+     try {
+      const url = !search ? `https://www.themealdb.com/api/json/v1/1/filter.php?i=pie&c=Dessert` :
+      `https://www.themealdb.com/api/json/v1/1/filter.php?i=${search.meal}&c=${search.category}`
+            
+      
       const { data } = await axios(url);
       setMeals(data.meals);
     } catch (error) {
@@ -38,9 +48,9 @@ const MealProvider = ({ children }) => {
     }
   };
 
-  const getMealsById = async () => {
+  const getMealsById = async (idMeal) => {
     try {
-      const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772`;
+      const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=53060`;
       const { data } = await axios(url);
       setRecipe(data.meals);
     } catch (error) {
@@ -49,6 +59,7 @@ const MealProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    getModal();
     getCategory();
     getMeal();
     getAllMeals();
@@ -62,7 +73,9 @@ const MealProvider = ({ children }) => {
         meals,
         getMeal,
         allMeals,
+        getMealsById,
         recipe,
+        show,
       }}
     >
       {children}

@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import ShowMeals from "./components/ShowMeals";
 import BannerSection from "./components/BannerSection";
 import Banner from "./images/banner-story.jpg";
-import { MealProvider } from "./store/providers/mealProvider";
+import { MealProvider } from "./store/providers/MealProvider";
 import useCategory from "./store/hooks/useCategory";
 import FormData from "./components/FormData";
 

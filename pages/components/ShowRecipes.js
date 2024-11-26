@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import useCategory from "../store/hooks/useCategory";
-import { Card } from "react-bootstrap";
+import { Card, Button, Modal } from "react-bootstrap";
 import Link from "next/link";
 import style from "../../styles/ShowRecipes.module.css";
+import RecipeId from "./RecipeId";
 
 const ShowRecipes = ({ quantity }) => {
-  const { allMeals } = useCategory();
+  const { allMeals, getMealsById } = useCategory();
+  
+  const selectRecipeId  = (id) =>{
+    getMealsById(id)
+  }
 
   return (
     <>
@@ -19,7 +24,7 @@ const ShowRecipes = ({ quantity }) => {
                   .toLowerCase()
                   .replace(/ /g, "-")}`}
               >
-                <a>
+                <a onClick={() => selectRecipeId(idMeal)}>
                   <div className={style["show-recipes__image"]}>
                     <Card.Img variant="top" src={strMealThumb} />
                   </div>
@@ -28,6 +33,7 @@ const ShowRecipes = ({ quantity }) => {
                       {strMeal}
                     </Card.Title>
                     <p style={{ fontSize: "2.5rem" }}>{strArea}</p>
+                  <Button >See Recipe</Button>
                   </Card.Body>
                 </a>
               </Link>

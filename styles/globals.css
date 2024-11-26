@@ -23,7 +23,7 @@
 
 html {
     font-size: 62.5%;
-    
+
 }
 
 body {
@@ -44,8 +44,9 @@ body {
     font-size: 6rem;
 }
 
-body {
-    height: 100vh;
+#__next{
+    position: relative;
+    height: 100%;
 }
 
 nav {
@@ -68,6 +69,7 @@ main{
 section {
     position: relative;
     margin-top: 5rem;
+    margin-bottom: 5rem;
 }
 
 a {
